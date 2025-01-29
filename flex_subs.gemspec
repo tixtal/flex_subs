@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
 
   spec.summary = 'Flex Subscription'
   spec.description = 'Flex Subscription'
-  spec.homepage = 'https://github.com/tixtal/subscription'
+  spec.homepage = 'https://github.com/tixtal/flex_subs'
   spec.license = 'MIT'
   spec.required_ruby_version = '>= 3.3.4'
 
