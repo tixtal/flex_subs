@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'money-rails'
 require_relative 'flex_subs/version'
 require_relative 'flex_subs/engine'
 require_relative 'flex_subs/railtie'
