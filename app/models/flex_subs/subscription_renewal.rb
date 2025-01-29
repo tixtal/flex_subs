@@ -12,7 +12,7 @@
 #
 # Indexes
 #
-#  idx_on_subscription_id_351581098b  (subscription_id)
+#  index_flex_subs_subscription_renewals_on_subscription_id  (subscription_id)
 #
 # Foreign Keys
 #

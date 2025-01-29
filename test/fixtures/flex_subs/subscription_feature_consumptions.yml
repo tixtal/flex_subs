@@ -17,8 +17,8 @@
 # Indexes
 #
 #  idx_on_consumer_type_and_consumer_id_8a48f601ec  (consumer_type,consumer_id)
-#  idx_on_feature_id_8a48f601ec                     (feature_id)
-#  idx_on_subscription_id_41594400cd                (subscription_id)
+#  idx_on_feature_id_d45489aedb                     (feature_id)
+#  idx_on_subscription_id_87bbc8031d                (subscription_id)
 #
 # Foreign Keys
 #

@@ -59,8 +59,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_28_043706) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["consumer_type", "consumer_id"], name: "idx_on_consumer_type_and_consumer_id_8a48f601ec"
-    t.index ["feature_id"], name: "idx_on_feature_id_8a48f601ec"
-    t.index ["subscription_id"], name: "idx_on_subscription_id_41594400cd"
+    t.index ["feature_id"], name: "idx_on_feature_id_d45489aedb"
+    t.index ["subscription_id"], name: "idx_on_subscription_id_87bbc8031d"
   end
 
   create_table "flex_subs_subscription_renewals", force: :cascade do |t|
@@ -70,7 +70,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_28_043706) do
     t.datetime "renewed_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["subscription_id"], name: "idx_on_subscription_id_351581098b"
+    t.index ["subscription_id"], name: "index_flex_subs_subscription_renewals_on_subscription_id"
   end
 
   create_table "flex_subs_subscriptions", force: :cascade do |t|
