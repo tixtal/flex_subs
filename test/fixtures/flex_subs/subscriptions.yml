@@ -24,7 +24,7 @@
 #
 #  plan_id  (plan_id => flex_subs_plans.id)
 #
-trial_inactive_user:
+inactive_trial_user:
   subscriber: free (User)
   plan: premium_monthly
   on_trial: true
