@@ -6,6 +6,7 @@
 #  canceled_at          :datetime
 #  ends_at              :datetime
 #  grace_period_ends_at :datetime
+#  on_trial             :boolean          default(FALSE)
 #  starts_at            :datetime
 #  subscriber_type      :string
 #  suppressed_at        :datetime
@@ -23,10 +24,23 @@
 #
 #  plan_id  (plan_id => flex_subs_plans.id)
 #
+trial_inactive_user:
+  subscriber: free (User)
+  plan: premium_monthly
+  on_trial: true
+  starts_at: <%= 1.month.ago %>
+  ends_at: <%= Time.zone.now %>
 free_user:
   subscriber: free (User)
   plan: free
   starts_at: <%= 1.month.ago %>
+
+trial_user:
+  subscriber: trial (User)
+  plan: premium_monthly
+  on_trial: true
+  starts_at: <%= Time.zone.now %>
+  ends_at: <%= 1.week.from_now %>
 
 premium_monthly_user:
   subscriber: premium_monthly (User)

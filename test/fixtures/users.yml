@@ -1,5 +1,7 @@
 free:
   name: Free user
+trial:
+  name: Trial user
 premium_monthly:
   name: Premium Monthly user
 premium_yearly:

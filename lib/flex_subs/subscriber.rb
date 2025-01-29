@@ -10,8 +10,11 @@ module FlexSubs
       has_one :current_subscription,
               lambda {
                 sql = <<-SQL.squish
-                  starts_at < :current_time AND
                   suppressed_at IS NULL AND
+                  (
+                    starts_at IS NOT NULL AND
+                    starts_at < :current_time
+                  ) AND
                   (
                     grace_period_ends_at IS NULL OR
                     grace_period_ends_at > :current_time

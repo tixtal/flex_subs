@@ -21,6 +21,8 @@ module FlexSubs
               where(sql, current_time: Time.zone.now)
             }
 
+      scope :on_trial, -> { active.where(on_trial: true) }
+
       scope :active_and_next,
             lambda {
               sql = <<-SQL.squish

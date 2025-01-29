@@ -31,6 +31,8 @@ module FlexSubs
     end
 
     def consume?(feature, amount: 1.0)
+      return false unless active?
+
       raise InvalidConsumptionAmountError if amount <= 0
 
       feature = find_feature(feature)
@@ -80,11 +82,17 @@ module FlexSubs
     private
 
     def calculate_consumption_price(feature, featurable, amount)
+      return 0 if on_trial?
+
+      total_next_active_consumption = total_active_consumption(feature) + amount
+
+      return 0 if total_next_active_consumption <= featurable.consumption_limit
+
       FlexSubs.consumption_price_calculation.call(
         feature:,
         featurable:,
         amount:,
-        total_next_active_consumption: total_active_consumption(feature) + amount
+        total_next_active_consumption:
       )
     end
 

@@ -13,9 +13,6 @@ module FlexSubs
 
   mattr_accessor :consumption_price_calculation,
                  default: lambda { |feature:, featurable:, amount:, total_next_active_consumption:|
-                   return 0 if total_next_active_consumption <= featurable.consumption_limit
-
-                   featurable.price *
-                     (amount / featurable.units_per_price)
+                   featurable.price * (amount / featurable.units_per_price)
                  }
 end

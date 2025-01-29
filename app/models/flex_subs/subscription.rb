@@ -6,6 +6,7 @@
 #  canceled_at          :datetime
 #  ends_at              :datetime
 #  grace_period_ends_at :datetime
+#  on_trial             :boolean          default(FALSE)
 #  starts_at            :datetime
 #  subscriber_type      :string
 #  suppressed_at        :datetime

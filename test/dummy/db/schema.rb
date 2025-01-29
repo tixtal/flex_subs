@@ -77,6 +77,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_28_043706) do
     t.integer "plan_id", null: false
     t.string "subscriber_type"
     t.integer "subscriber_id"
+    t.boolean "on_trial", default: false
     t.datetime "starts_at"
     t.datetime "ends_at"
     t.datetime "canceled_at"
