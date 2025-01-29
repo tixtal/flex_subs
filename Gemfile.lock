@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     flex_subs (0.1.0)
+      money-rails (>= 1.15.0)
       rails (>= 8.0)
 
 GEM
