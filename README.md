@@ -1,5 +1,5 @@
 # FlexSubs
-Gem for handling dynamic subscriptions
+Gem for handling subscriptions with several cases (Fixed prices or Pay-as-you-go)
 
 ## Installation
 
