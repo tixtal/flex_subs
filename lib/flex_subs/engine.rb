@@ -4,6 +4,12 @@ module FlexSubs
   class Engine < Rails::Engine
     engine_name 'flex_subs'
 
+    initializer 'flex_subs.load_money_rails' do
+      ActiveSupport.on_load :active_record do
+        require 'money-rails'
+      end
+    end
+
     initializer 'flex_subs.load_subscriber' do
       ActiveSupport.on_load :active_record do
         def self.acts_as_subscriber
