@@ -2,6 +2,7 @@
 
 require_relative 'flex_subs/version'
 require_relative 'flex_subs/engine'
+require_relative 'flex_subs/railtie'
 require_relative 'flex_subs/errors'
 
 module FlexSubs
