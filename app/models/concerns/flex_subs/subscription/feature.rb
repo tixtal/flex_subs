@@ -31,9 +31,9 @@ module FlexSubs
     end
 
     def consume?(feature, amount: 1.0)
-      return false unless active?
-
       raise InvalidConsumptionAmountError if amount <= 0
+
+      return false unless active?
 
       feature = find_feature(feature)
       amount = amount.to_f
