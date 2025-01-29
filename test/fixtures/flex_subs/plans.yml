@@ -1,0 +1,62 @@
+# == Schema Information
+#
+# Table name: flex_subs_plans
+#
+#  id                 :integer          not null, primary key
+#  grace_period_unit  :string
+#  grace_period_value :decimal(, )
+#  name               :string
+#  price_cents        :integer          default(0), not null
+#  price_currency     :string           default("USD"), not null
+#  recurrence_unit    :string
+#  recurrence_value   :decimal(, )
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#
+free:
+  name: Free
+  price_cents: 0
+  price_currency: USD
+
+premium_monthly:
+  name: Premium Monthly
+  recurrence_value: 1
+  recurrence_unit: months
+  grace_period_value: 1
+  grace_period_unit: weeks
+  price_cents: 1000
+  price_currency: USD
+premium_yearly:
+  name: Premium Yearly
+  recurrence_value: 1
+  recurrence_unit: years
+  grace_period_value: 9
+  grace_period_unit: days
+  price_cents: 10000
+  price_currency: USD
+
+platinum_monthly:
+  name: Platinum Monthly
+  recurrence_value: 1
+  recurrence_unit: months
+  grace_period_value: 1
+  grace_period_unit: weeks
+  price_cents: 10000
+  price_currency: USD
+platinum_yearly:
+  name: Platinum Yearly
+  recurrence_value: 1
+  recurrence_unit: years
+  grace_period_value: 9
+  grace_period_unit: days
+  price_cents: 100000
+  price_currency: USD
+
+pay_as_you_go_monthly:
+  name: Pay As You Go Monthly
+  price_cents: 0
+  price_currency: USD
+pay_as_you_go_yearly:
+  name: Pay As You Go Yearly
+  price_cents: 0
+  price_currency: USD

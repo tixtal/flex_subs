@@ -1,0 +1,20 @@
+free:
+  name: Free user
+premium_monthly:
+  name: Premium Monthly user
+premium_yearly:
+  name: Premium Yearly user
+platinum_monthly:
+  name: Platinum Monthly user
+platinum_yearly:
+  name: Platinum Yearly user
+suppressed:
+  name: Suppressed user
+canceled:
+  name: Canceled user
+guest:
+  name: Guest user
+pay_as_you_go_monthly:
+  name: Pay As You Go Monthly user
+pay_as_you_go_yearly:
+  name: Pay As You Go Yearly user

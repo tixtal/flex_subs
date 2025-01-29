@@ -1,0 +1,156 @@
+# == Schema Information
+#
+# Table name: flex_subs_subscription_feature_consumptions
+#
+#  id              :integer          not null, primary key
+#  amount          :decimal(, )
+#  consumer_type   :string
+#  expires_at      :datetime
+#  price_cents     :integer          default(0), not null
+#  price_currency  :string           default("USD"), not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  consumer_id     :integer
+#  feature_id      :integer          not null
+#  subscription_id :integer          not null
+#
+# Indexes
+#
+#  idx_on_consumer_type_and_consumer_id_8a48f601ec  (consumer_type,consumer_id)
+#  idx_on_feature_id_8a48f601ec                     (feature_id)
+#  idx_on_subscription_id_41594400cd                (subscription_id)
+#
+# Foreign Keys
+#
+#  feature_id       (feature_id => flex_subs_features.id)
+#  subscription_id  (subscription_id => flex_subs_subscriptions.id)
+#
+free_user_deploy_minutes_active:
+  feature: deploy_minutes
+  amount: 10
+  subscription: free_user
+  expires_at: <%= 1.day.from_now %>
+free_user_deploy_minutes_inactive:
+  feature: deploy_minutes
+  amount: 15
+  subscription: free_user
+  expires_at: <%= 1.day.ago %>
+free_user_file_storage_active:
+  feature: file_storage
+  amount: 100
+  subscription: free_user
+free_user_custom_domain_active:
+  amount: 1
+  feature: custom_domain
+  subscription: free_user
+
+premium_monthly_user_deploy_minutes_active:
+  feature: deploy_minutes
+  amount: 100
+  subscription: premium_monthly_user
+  expires_at: <%= 1.day.from_now %>
+premium_monthly_user_deploy_minutes_inactive:
+  feature: deploy_minutes
+  amount: 150
+  subscription: premium_monthly_user
+  expires_at: <%= 1.day.ago %>
+premium_monthly_user_file_storage_active:
+  feature: file_storage
+  amount: 1000
+  subscription: premium_monthly_user
+premium_monthly_user_custom_domain_active:
+  amount: 1
+  feature: custom_domain
+  subscription: premium_monthly_user
+
+platinum_monthly_user_deploy_minutes_active:
+  feature: deploy_minutes
+  amount: 1000
+  subscription: platinum_monthly_user
+  expires_at: <%= 1.day.from_now %>
+platinum_monthly_user_deploy_minutes_inactive:
+  feature: deploy_minutes
+  amount: 1500
+  subscription: platinum_monthly_user
+  expires_at: <%= 1.day.ago %>
+platinum_monthly_user_file_storage_active:
+  feature: file_storage
+  amount: 10000
+  subscription: platinum_monthly_user
+platinum_monthly_user_file_storage_inactive:
+  feature: file_storage
+  amount: 15000
+  subscription: platinum_monthly_user
+  expires_at: <%= 1.day.ago %>
+platinum_monthly_user_custom_domain_active:
+  amount: 1
+  feature: custom_domain
+  subscription: platinum_monthly_user
+
+pay_as_you_go_monthly_user_deploy_minutes_inactive:
+  feature: deploy_minutes
+  amount: 10
+  subscription: pay_as_you_go_monthly_user
+  expires_at: <%= 1.month.ago %>
+  price_cents: 100
+  price_currency: USD
+pay_as_you_go_monthly_user_deploy_minutes_active:
+  feature: deploy_minutes
+  amount: 10
+  subscription: pay_as_you_go_monthly_user
+  expires_at: <%= 1.month.from_now %>
+  price_cents: 100
+  price_currency: USD
+pay_as_you_go_monthly_user_file_storage_active:
+  feature: file_storage
+  amount: 100
+  subscription: pay_as_you_go_monthly_user
+  expires_at: <%= 1.month.from_now %>
+  price_cents: 100
+  price_currency: USD
+pay_as_you_go_monthly_user_file_storage_inactive:
+  feature: file_storage
+  amount: 150
+  subscription: pay_as_you_go_monthly_user
+  expires_at: <%= 1.month.ago %>
+  price_cents: 100
+  price_currency: USD
+pay_as_you_go_monthly_custom_domain_active:
+  feature: custom_domain
+  subscription: pay_as_you_go_monthly_user
+  amount: 1
+  price_cents: 100
+  price_currency: USD
+
+pay_as_you_go_yearly_user_deploy_minutes_active:
+  feature: deploy_minutes
+  amount: 10
+  subscription: pay_as_you_go_yearly_user
+  expires_at: <%= 1.year.from_now %>
+  price_cents: 1000
+  price_currency: USD
+pay_as_you_go_yearly_user_deploy_minutes_inactive:
+  feature: deploy_minutes
+  amount: 15
+  subscription: pay_as_you_go_yearly_user
+  expires_at: <%= 1.year.ago %>
+  price_cents: 1000
+  price_currency: USD
+pay_as_you_go_yearly_user_file_storage_active:
+  feature: file_storage
+  amount: 100
+  subscription: pay_as_you_go_yearly_user
+  expires_at: <%= 1.year.from_now %>
+  price_cents: 1000
+  price_currency: USD
+pay_as_you_go_yearly_user_file_storage_inactive:
+  feature: file_storage
+  amount: 150
+  subscription: pay_as_you_go_yearly_user
+  expires_at: <%= 1.year.ago %>
+  price_cents: 1000
+  price_currency: USD
+pay_as_you_go_yearly_user_custom_domain_active:
+  feature: custom_domain
+  subscription: pay_as_you_go_yearly_user
+  amount: 1

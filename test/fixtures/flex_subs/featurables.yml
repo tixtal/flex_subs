@@ -1,0 +1,139 @@
+# == Schema Information
+#
+# Table name: flex_subs_featurables
+#
+#  id                           :integer          not null, primary key
+#  consumption_limit            :decimal(, )
+#  consumption_recurrence_unit  :string
+#  consumption_recurrence_value :decimal(, )
+#  featurable_type              :string           not null
+#  over_consumption_allowed     :boolean
+#  price_cents                  :integer          default(0), not null
+#  price_currency               :string           default("USD"), not null
+#  units_per_price              :decimal(, )
+#  created_at                   :datetime         not null
+#  updated_at                   :datetime         not null
+#  featurable_id                :integer          not null
+#  feature_id                   :integer          not null
+#
+# Indexes
+#
+#  index_flex_subs_featurables_on_featurable  (featurable_type,featurable_id)
+#  index_flex_subs_featurables_on_feature_id  (feature_id)
+#
+# Foreign Keys
+#
+#  feature_id  (feature_id => flex_subs_features.id)
+#
+free_deploy_minutes:
+  featurable: free (FlexSubs::Plan)
+  feature: deploy_minutes
+  consumption_limit: 10
+  over_consumption_allowed: false
+  consumption_recurrence_value: 1
+  consumption_recurrence_unit: days
+free_file_storage:
+  featurable: free (FlexSubs::Plan)
+  feature: file_storage
+  consumption_limit: 100
+  over_consumption_allowed: false
+
+premium_deploy_minutes:
+  featurable: premium_monthly (FlexSubs::Plan)
+  feature: deploy_minutes
+  consumption_limit: 100
+  consumption_recurrence_value: 1
+  consumption_recurrence_unit: days
+  over_consumption_allowed: true
+  price_cents: 1000
+  price_currency: USD
+  units_per_price: 5
+premium_file_storage:
+  featurable: premium_monthly (FlexSubs::Plan)
+  feature: file_storage
+  consumption_limit: 1000
+  over_consumption_allowed: true
+  price_cents: 500
+  price_currency: USD
+  units_per_price: 10
+
+platinum_deploy_minutes:
+  featurable: platinum_monthly (FlexSubs::Plan)
+  feature: deploy_minutes
+  consumption_limit: 1000
+  consumption_recurrence_value: 1
+  consumption_recurrence_unit: days
+  over_consumption_allowed: true
+  price_cents: 500
+  price_currency: USD
+  units_per_price: 20
+platinum_file_storage:
+  featurable: platinum_monthly (FlexSubs::Plan)
+  feature: file_storage
+  consumption_limit: 10000
+  over_consumption_allowed: true
+  price_cents: 250
+  price_currency: USD
+  units_per_price: 50
+platinum_custom_domain:
+  consumption_limit: 1
+  featurable: platinum_monthly (FlexSubs::Plan)
+  feature: custom_domain
+  over_consumption_allowed: false
+
+pay_as_you_go_monthly_deploy_minutes:
+  featurable: pay_as_you_go_monthly_user (FlexSubs::Subscription)
+  feature: deploy_minutes
+  consumption_limit: 0
+  over_consumption_allowed: true
+  price_cents: 1000
+  price_currency: USD
+  units_per_price: 10
+  consumption_recurrence_value: 1
+  consumption_recurrence_unit: months
+pay_as_you_go_monthly_file_storage:
+  featurable: pay_as_you_go_monthly_user (FlexSubs::Subscription)
+  feature: file_storage
+  consumption_limit: 0
+  over_consumption_allowed: true
+  price_cents: 1000
+  price_currency: USD
+  units_per_price: 100
+  consumption_recurrence_value: 1
+  consumption_recurrence_unit: months
+pay_as_you_go_monthly_custom_domain:
+  consumption_limit: 1
+  featurable: pay_as_you_go_monthly_user (FlexSubs::Subscription)
+  feature: custom_domain
+  price_cents: 1000
+  price_currency: USD
+  over_consumption_allowed: false
+
+pay_as_you_go_yearly_deploy_minutes:
+  featurable: pay_as_you_go_yearly_user (FlexSubs::Subscription)
+  feature: deploy_minutes
+  consumption_limit: 0
+  over_consumption_allowed: true
+  price_cents: 10000
+  price_currency: USD
+  units_per_price: 100
+  consumption_recurrence_value: 1
+  consumption_recurrence_unit: years
+pay_as_you_go_yearly_file_storage:
+  featurable: pay_as_you_go_yearly_user (FlexSubs::Subscription)
+  feature: file_storage
+  consumption_limit: 0
+  over_consumption_allowed: true
+  price_cents: 10000
+  price_currency: USD
+  units_per_price: 1000
+  consumption_recurrence_value: 1
+  consumption_recurrence_unit: years
+pay_as_you_go_yearly_custom_domain:
+  consumption_limit: 1
+  featurable: pay_as_you_go_yearly_user (FlexSubs::Subscription)
+  feature: custom_domain
+  price_cents: 10000
+  price_currency: USD
+  over_consumption_allowed: false
+  

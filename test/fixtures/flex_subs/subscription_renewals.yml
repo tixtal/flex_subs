@@ -1,0 +1,30 @@
+# == Schema Information
+#
+# Table name: flex_subs_subscription_renewals
+#
+#  id                                :integer          not null, primary key
+#  renewed_at                        :datetime
+#  subscription_ends_at              :datetime
+#  subscription_grace_period_ends_at :datetime
+#  created_at                        :datetime         not null
+#  updated_at                        :datetime         not null
+#  subscription_id                   :integer          not null
+#
+# Indexes
+#
+#  idx_on_subscription_id_351581098b  (subscription_id)
+#
+# Foreign Keys
+#
+#  subscription_id  (subscription_id => flex_subs_subscriptions.id)
+#
+premium_monthly_user:
+  subscription: premium_monthly_user
+  subscription_ends_at: <%= Time.zone.tomorrow %>
+  subscription_grace_period_ends_at: <%= Time.zone.tomorrow + 1.week %>
+  renewed_at: <%= Time.zone.now %>
+platinum_monthly_user:
+  subscription: platinum_monthly_user
+  subscription_ends_at: <%= Time.zone.tomorrow %>
+  subscription_grace_period_ends_at: <%= Time.zone.tomorrow + 1.week %>
+  renewed_at: <%= Time.zone.now %>

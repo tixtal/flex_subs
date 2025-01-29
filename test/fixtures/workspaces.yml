@@ -1,0 +1,14 @@
+free:
+  name: Free workspace
+premium_monthly:
+  name: Premium Monthly workspace
+premium_yearly:
+  name: Premium Yearly workspace
+platinum_monthly:
+  name: Platinum Monthly workspace
+platinum_yearly:
+  name: Platinum Yearly workspace
+suppressed:
+  name: Suppressed user
+canceled:
+  name: Canceled user

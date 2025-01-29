@@ -1,0 +1,16 @@
+.byebug_history
+/.bundle/
+/.yardoc
+/_yardoc/
+/coverage/
+/doc/
+/pkg/
+/spec/reports/
+/test/dummy/db/*.sqlite3
+/test/dummy/db/*.sqlite3-journal
+/test/dummy/db/*.sqlite3-*
+/test/dummy/log/*.log
+/test/dummy/log/*.log.*
+/test/dummy/storage/
+/test/dummy/tmp/
+/tmp/

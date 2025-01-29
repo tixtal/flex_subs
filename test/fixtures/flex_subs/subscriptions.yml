@@ -1,0 +1,137 @@
+# == Schema Information
+#
+# Table name: flex_subs_subscriptions
+#
+#  id                   :integer          not null, primary key
+#  canceled_at          :datetime
+#  ends_at              :datetime
+#  grace_period_ends_at :datetime
+#  starts_at            :datetime
+#  subscriber_type      :string
+#  suppressed_at        :datetime
+#  created_at           :datetime         not null
+#  updated_at           :datetime         not null
+#  plan_id              :integer          not null
+#  subscriber_id        :integer
+#
+# Indexes
+#
+#  index_flex_subs_subscriptions_on_plan_id     (plan_id)
+#  index_flex_subs_subscriptions_on_subscriber  (subscriber_type,subscriber_id)
+#
+# Foreign Keys
+#
+#  plan_id  (plan_id => flex_subs_plans.id)
+#
+free_user:
+  subscriber: free (User)
+  plan: free
+  starts_at: <%= 1.month.ago %>
+
+premium_monthly_user:
+  subscriber: premium_monthly (User)
+  plan: premium_monthly
+  starts_at: <%= Time.zone.now %>
+  ends_at: <%= 1.month.from_now %>
+  grace_period_ends_at: <%= 1.month.from_now + 1.week %>
+switched_premium_monthly_to_yearly_user:
+  subscriber: premium_monthly (User)
+  plan: premium_yearly
+  starts_at: <%= 1.month.from_now %>
+  ends_at: <%= 1.year.from_now + 1.month %>
+  grace_period_ends_at: <%= 1.year.from_now + 1.month + 9.days %>
+premium_yearly_user:
+  subscriber: premium_yearly (User)
+  plan: premium_yearly
+  starts_at: <%= Time.zone.now %>
+  ends_at: <%= 1.year.from_now %>
+  grace_period_ends_at: <%= 1.year.from_now + 9.days %>
+
+platinum_monthly_user:
+  subscriber: platinum_monthly (User)
+  plan: platinum_monthly
+  starts_at: <%= Time.zone.now %>
+  ends_at: <%= 1.month.from_now %>
+  grace_period_ends_at: <%= 1.month.from_now + 1.week %>
+platinum_yearly_user:
+  subscriber: platinum_yearly (User)
+  plan: platinum_yearly
+  starts_at: <%= Time.zone.now %>
+  ends_at: <%= 1.year.from_now %>
+  grace_period_ends_at: <%= 1.year.from_now + 9.days %>
+
+suppressed_user:
+  subscriber: suppressed (User)
+  plan: premium_monthly
+  starts_at: <%= Time.zone.now - 2.weeks %>
+  ends_at: <%= Time.zone.now - 2.weeks + 1.month %>
+  grace_period_ends_at: <%= Time.zone.now - 2.weeks + 1.month + 1.week %>
+  suppressed_at: <%= Time.zone.now - 1.week %>
+canceled_user:
+  subscriber: canceled (User)
+  plan: premium_yearly
+  starts_at: <%= Time.zone.now - 2.weeks %>
+  ends_at: <%= Time.zone.now - 2.weeks + 1.year %>
+  grace_period_ends_at: <%= Time.zone.now - 2.weeks + 1.year + 9.days %>
+  canceled_at: <%= Time.zone.now - 1.week %>
+
+free_workspace:
+  subscriber: free (Workspace)
+  plan: free
+  starts_at: <%= 1.month.ago %>
+
+premium_monthly_workspace:
+  subscriber: premium_monthly (Workspace)
+  plan: premium_monthly
+  starts_at: <%= Time.zone.now %>
+  ends_at: <%= 1.month.from_now %>
+  grace_period_ends_at: <%= 1.month.from_now + 1.week %>
+switched_premium_monthly_to_yearly_workspace:
+  subscriber: premium_monthly (Workspace)
+  plan: premium_yearly
+  starts_at: <%= 1.month.from_now %>
+  ends_at: <%= 1.year.from_now + 1.month %>
+  grace_period_ends_at: <%= 1.year.from_now + 1.month + 9.days %>
+premium_yearly_workspace:
+  subscriber: premium_yearly (Workspace)
+  plan: premium_yearly
+  starts_at: <%= Time.zone.now %>
+  ends_at: <%= 1.year.from_now %>
+  grace_period_ends_at: <%= 1.year.from_now + 9.days %>
+
+platinum_monthly_workspace:
+  subscriber: platinum_monthly (Workspace)
+  plan: platinum_monthly
+  starts_at: <%= Time.zone.now %>
+  ends_at: <%= 1.month.from_now %>
+  grace_period_ends_at: <%= 1.month.from_now + 1.week %>
+platinum_yearly_workspace:
+  subscriber: platinum_yearly (Workspace)
+  plan: platinum_yearly
+  starts_at: <%= Time.zone.now %>
+  ends_at: <%= 1.year.from_now %>
+  grace_period_ends_at: <%= 1.year.from_now + 9.days %>
+
+suppressed_workspace:
+  subscriber: suppressed (Workspace)
+  plan: premium_monthly
+  starts_at: <%= Time.zone.now - 2.weeks %>
+  ends_at: <%= Time.zone.now - 2.weeks + 1.month %>
+  grace_period_ends_at: <%= Time.zone.now - 2.weeks + 1.month + 1.week %>
+  suppressed_at: <%= Time.zone.now - 1.week %>
+canceled_workspace:
+  subscriber: canceled (Workspace)
+  plan: premium_yearly
+  starts_at: <%= Time.zone.now - 2.weeks %>
+  ends_at: <%= Time.zone.now - 2.weeks + 1.year %>
+  grace_period_ends_at: <%= Time.zone.now - 2.weeks + 1.year + 9.days %>
+  canceled_at: <%= Time.zone.now - 1.week %>
+
+pay_as_you_go_monthly_user:
+  subscriber: pay_as_you_go_monthly (User)
+  plan: pay_as_you_go_monthly
+  starts_at: <%= Time.zone.now %>
+pay_as_you_go_yearly_user:
+  subscriber: pay_as_you_go_yearly (User)
+  plan: pay_as_you_go_yearly
+  starts_at: <%= Time.zone.now %>
